@@ -4,7 +4,7 @@ With Arun G. Chandrasekhar, Paul Goldsmith-Pinkham, and Matthew O. Jackson.
 
 
 # Workflow:
-## Individual Test:
+## Individual Simulation:
 1) Set up folder to run sims with:
 - graph.mat
 - parameters.mat (renamed version of a file from the parameters folder)
@@ -93,6 +93,20 @@ kx_policy_new.m
     - q_ball_close = list of nodes that are quarantined in initial quarantine
     - q_ball_check = list of nodes that are checked when determining initial quarantine
     - enforce = indicator vector of if nodes comply with lockdowns
+
+kx_policy_v3.m
+- Runs the (k,x) policies described in the paper and SI
+  - Inputs:
+    - K, T, alpha, theta, tau, x, G, R0, radius, seed, eps
+    - seed is a node selected from seed_list
+    - eps = fraction of nodes that do not quarantine, set in run files
+  - Outputs:
+    - infection_mat = KxT matrix indicating when nodes are infected
+    - detection_mat = KxT matrix indicating when nodes are detected
+    - recovered_mat = KxT matrix indicating when nodes are recovered
+    - q_idx = KxT matrix indicating when nodes are quarantined
+    - fail_idx = 1 if failure, 0 if initial quarantine succeeds
+    - dist_list = list of average distance between detected nodes (returns -1 if there are no detections)
 
 jurisdiction_policy_new.m
   - Inputs
