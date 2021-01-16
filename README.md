@@ -1,7 +1,7 @@
 # Replication code for "Interacting Regional Policies for Containing a Disease"
 With Arun G. Chandrasekhar, Paul Goldsmith-Pinkham, and Matthew O. Jackson. 
 
-
+All code is meant to run in *Matlab 2019a*
 
 # Workflow:
 ## Individual Simulation:
@@ -15,7 +15,7 @@ With Arun G. Chandrasekhar, Paul Goldsmith-Pinkham, and Matthew O. Jackson.
 
 ## Large Scale Replication:
 1) Move the folder "Server Files" to a computing cluster that uses Slurm
-2) In each sub-folder (Figure2, Figure3, Global), edit the .sh file with output in the name so that it runs on your cluster. Do NOT edit the last line of this  file. 
+2) In each sub-folder (Figure2, Figure3, Global), edit the .sh file with output in the name so that it runs on your cluster. For Figure 3, do not set the number of cores to less than 12, or the code will crash.
 - Figure2: figure2_output.sh
 - Figure3: figure3_output.sh
 - Global: figure_global_output.sh
@@ -24,6 +24,7 @@ With Arun G. Chandrasekhar, Paul Goldsmith-Pinkham, and Matthew O. Jackson.
 - run_alt.sh runs versions used for robustness checks in the appendix
 4) After all of the jobs have run, run the corresponding clean file
 - this will generate a folder with all of your output to transfer off of the cluster
+- be aware that there may be occasional issues with parallel computing features exiting without an error, but not writing anything into the output files
 5) Once off of the server, copy in the corresponding processing file into your output folder and run it to combine the partitioned results into single .mat files
 6) Move combined files to Figures folder and run the R script to generate the figures
 
@@ -35,15 +36,16 @@ With Arun G. Chandrasekhar, Paul Goldsmith-Pinkham, and Matthew O. Jackson.
   - current titles of the files correspond to what parameters it contains
 
     - fig2 are for the (k,x) policy simulations
-      - fig2 unknown are for the for (k,x) with an unknown seed simulations
-      - fig3 are for the jurisdiction policy simulations
-      - global are for global lockdowns
-      - base are the main parameters listed in the body of the paper
-      - low are with alpha=0.05, instead of 0.1
-      - long are theta=8, tau=5, rather than theta=5, tau=3	
-      - flu are R0=2
-      - smallpox are R0=5
-      - measles are R0=15
+    - fig2 unknown are for the for (k,x) with an unknown seed simulations
+    - fig3 are for the jurisdiction policy simulations
+    - global are for global lockdowns
+    - base are the main parameters listed in the body of the paper
+    - low are with alpha=0.05, instead of 0.1
+    - high are with alpha=0.2 instead of 0.1
+    - long are theta=8, tau=5, rather than theta=5, tau=3	
+    - flu are R0=2
+    - smallpox are R0=5
+    - measles are R0=15
 	- each file contains:
 		- count = number of sims
 		- partition = indicator of which section for the given parameter set
