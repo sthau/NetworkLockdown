@@ -23,7 +23,7 @@ do
 		pwd
 		cp figure2A_output.mat ../../fig2_output/"$param"/"${file1}${letter}${ext}"
 		cp figure2B_output.mat ../../fig2_output/"$param"/"${file2}${letter}${ext}"
-		cp figure2D_output.mat ../../fig2_output/"$param"/"${file4}${letter}${ext}"
+		cp figure2D_output.mat ../../fig2_output/"$param"/"${file3}${letter}${ext}"
 	
 		##return to main folder
 		cd ../../
