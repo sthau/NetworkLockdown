@@ -2,9 +2,9 @@ clear
 clc
 
 %%
-load('figure2A_outputa.mat')
-load('figure2B_outputa.mat')
-load('figure2D_outputa.mat')
+load('figure2a_outputa.mat')
+load('figure2b_outputa.mat')
+load('figure2d_outputa.mat')
 
 infections_1=infection_mat_1;
 detections_1=detection_mat_1;

@@ -236,15 +236,15 @@ mean(C)
 
 
 %%
-num_check=10000;
+num_check=5000;
 sample=randsample(K,num_check);
 graph_test=graph(G);
 size=zeros(num_check,1);
-radius=3;
+radius=5;
 seed=randi(K,num_check,1);
 
 
-parfor kk=1:num_check
+for kk=1:num_check
     tic
     size(kk)=length(nearest(graph_test, seed(kk), radius));
     toc

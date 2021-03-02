@@ -1,6 +1,9 @@
-clear
-clc
+pc = parcluster('local');
+parpool_tmpdir = ['~/.matlab/local_cluster_jobs/R2019a/slurm_jobID_',getenv('SLURM_ARRAY_JOB_ID'),'_',getenv('SLURM_ARRAY_TASK_ID')]
+mkdir(parpool_tmpdir)
+pc.JobStorageLocation = parpool_tmpdir
 
+parpool(pc,12)
 %% Load graph and parameters
 load("graph.mat")
 load("parameters.mat")
